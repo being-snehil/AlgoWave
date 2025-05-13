@@ -1,0 +1,291 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 262.1 83.3% 57.8%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 262.1 83.3% 57.8%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --radius: 0.75rem;
+  }
+
+  .light {
+    --background: 210 40% 98%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 262.1 83.3% 57.8%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 262.1 83.3% 57.8%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-image: 
+      radial-gradient(circle at 40% 50%, #610b4b 0%, #a30d8a00 40%),
+      radial-gradient(circle at 65% 60%, #420a50 0%, #580e7500 45%),
+      radial-gradient(circle at 40% 60%, #076066 0%, #17777700 45%);
+    background-blend-mode: screen;
+  }
+
+  @property --color-1 {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: hsl(98 100% 62%);
+  }
+
+  @property --color-2 {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: hsl(204 100% 59%);
+  }
+
+  /* keyframes that change the color variable */
+  @keyframes gradient-change {
+    to {
+      --color-1: hsl(210 100% 59%);
+      --color-2: hsl(310 100% 59%);
+    }
+  }
+
+  /* keyframes for gradient animation with specific colors */
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .gradient-text {
+    background-image: linear-gradient(
+      to right,
+      #ff78fa 20%,
+      #ffb36c 40%,
+      #ffb36c 60%,
+      #ff78fa 80%
+    );
+    background-size: 200% auto;
+    animation: gradient-animation 8s ease infinite;
+    
+    /* old browser support */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* modern browser version */
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Mobile optimizations for gradient text */
+  @media (max-width: 640px) {
+    .gradient-text {
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+    h1 {
+      line-height: 1.3;
+    }
+  }
+
+  .gradient-bg {
+    @apply bg-gradient-to-r from-primary to-secondary/90;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+
+  /* Add glass morphism effect for cards */
+  .glass-card {
+    @apply backdrop-blur-xl bg-white/5 border border-white/10 shadow-[0_4px_12px_-2px_rgba(0,0,0,0.3)];
+  }
+  
+  .neo-blur {
+    @apply backdrop-blur-2xl bg-black/40 border border-white/10;
+  }
+  
+  /* Starfield animation styles */
+  .scene div {
+    width: 1.5vmin;
+    height: 1.5vmin;
+    transform: 
+      translateZ(-100vmin)
+      rotateY(90deg)
+      rotateX(var(--rx))
+      translateZ(var(--x))
+      scaleX(1);
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    animation: animate 1.5s infinite ease-in;
+    background: #fff;
+    box-shadow: 0 0 20px rgb(10, 239, 255);
+  }
+
+  @keyframes animate {
+    0%, 90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: 
+        translateZ(0vmin)
+        rotateY(90deg)
+        rotateX(var(--rx))
+        translateZ(var(--x))
+        scaleX(6);
+    }
+  }
+}
+
+/* Gantt chart styling with updated dark theme colors */
+.gantt-chart-container {
+  position: relative;
+  height: 60px;
+  margin: 20px 0;
+  background-color: hsl(var(--muted));
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.gantt-bar {
+  position: absolute;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 500;
+  transition: all 0.5s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.timeline {
+  position: relative;
+  height: 30px;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.timeline-marker {
+  position: absolute;
+  width: 1px;
+  height: 12px;
+  background-color: hsl(var(--muted-foreground));
+  top: 0;
+}
+
+.timeline-label {
+  position: absolute;
+  font-size: 0.75rem;
+  color: hsl(var(--muted-foreground));
+  top: 14px;
+  transform: translateX(-50%);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Smooth animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Add pulse animation for buttons */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.btn-pulse:hover {
+  animation: pulse 1.5s infinite;
+}
+
+/* Form field focus effects */
+input:focus, select:focus, textarea:focus {
+  @apply ring-2 ring-primary/70 transition-all duration-200;
+  box-shadow: 0 0 0 2px rgba(var(--primary), 0.2);
+}
+
+/* Modern card styles */
+.modern-card {
+  @apply bg-card rounded-xl border border-border shadow-md transition-all duration-300 hover:shadow-xl;
+}
