@@ -67,10 +67,10 @@ const BankersAlgorithm = () => {
             A deadlock avoidance algorithm that tests for safety by simulating allocation of all resources.
           </p>
         </div>
-        <Button variant="outline" onClick={handleRefresh} className="flex items-center gap-2">
+        {/* <Button variant="outline" onClick={handleRefresh} className="flex items-center gap-2">
           <RefreshCw className="h-4 w-4" />
           Refresh
-        </Button>
+        </Button> */}
       </div>
 
       <Card className="mb-6">
