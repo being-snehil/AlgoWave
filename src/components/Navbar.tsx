@@ -4,10 +4,16 @@ import { Button } from '@/components/ui/button';
 import { Menu } from 'lucide-react';
 
 
-const Navbar = () => {
+interface NavbarProps {
+  featureSectionRef?: RefObject<HTMLDivElement>;
+}
+
+const Navbar = ({ featureSectionRef }: NavbarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-
+  const scrollToFeatures = () => {
+    featureSectionRef?.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-sm">
@@ -44,18 +50,17 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="container md:hidden py-4 border-t">
           <nav className="flex flex-col space-y-3">
-            <Link to="/" className="text-sm font-medium transition-colors hover:text-primary">
-              Home
-            </Link>
-            <Link to="/algorithm/fcfs" className="text-sm font-medium transition-colors hover:text-primary">
+
+            <button 
+              onClick={scrollToFeatures} 
+              className="text-sm font-medium text-left transition-colors hover:text-primary"
+            >
               Algorithms
-            </Link>
-            <Link to="/" className="text-sm font-medium transition-colors hover:text-primary">
+            </button>
+            <Link to="/about" className="text-sm font-medium transition-colors hover:text-primary">
               About
             </Link>
-            <Link to="/" className="text-sm font-medium transition-colors hover:text-primary">
-              Documentation
-            </Link>
+
           </nav>
         </div>
       )}

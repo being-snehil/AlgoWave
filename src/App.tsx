@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Algorithm from "./pages/Algorithm";
 import BankersAlgorithm from "./pages/BankersAlgorithm";
 import NotFound from "./pages/NotFound";
+import About from "./pages/About";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/about" element={<About />} />
             <Route path="/algorithm/:algorithmId" element={<Algorithm />} />
             <Route path="/bankers" element={<BankersAlgorithm />} />
             <Route path="*" element={<NotFound />} />
