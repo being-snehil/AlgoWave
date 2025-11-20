@@ -289,3 +289,74 @@ input:focus, select:focus, textarea:focus {
 .modern-card {
   @apply bg-card rounded-xl border border-border shadow-md transition-all duration-300 hover:shadow-xl;
 }
+
+/* Graph visualization styles */
+.graph-node {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.graph-node.shadow-glow {
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+}
+
+/* Pathfinding grid styles */
+.grid-cell {
+  width: 15px;
+  height: 15px;
+  background-color: hsl(var(--muted));
+  transition: all 0.2s ease;
+}
+
+.grid-cell.wall {
+  background-color: hsl(var(--foreground));
+}
+
+.grid-cell.start {
+  background-color: #10b981; /* green-500 */
+  position: relative;
+  z-index: 10;
+}
+
+.grid-cell.end {
+  background-color: #ef4444; /* red-500 */
+}
+
+.grid-cell.visited {
+  background-color: hsl(var(--primary) / 0.3);
+}
+
+.grid-cell.path {
+  background: linear-gradient(90deg, #60a5fa, #8b5cf6); /* blue-400 to violet-500 */
+}
+
+/* Add a subtle glow to the start cell */
+.grid-cell.start::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background-color: rgba(16, 185, 129, 0.3);
+  border-radius: 2px;
+  z-index: -1;
+}
+
+/* Sorting visualization styles */
+.array-bar {
+  background-color: hsl(var(--primary));
+  border-radius: 4px 4px 0 0;
+  transition: all 0.2s ease;
+}
+
+.array-bar.comparing {
+  background-color: #f59e0b; /* amber-500 */
+}
+
+.array-bar.swapping {
+  background-color: #ef4444; /* red-500 */
+}
+
+.array-bar.sorted {
+  background-color: #10b981; /* green-500 */
+}

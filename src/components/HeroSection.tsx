@@ -31,7 +31,7 @@ const HeroSection = ({ featureSectionRef }: HeroSectionProps) => {
           </button>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-8 font-gilroy tracking-tight">
             Visualize{' '}
-            <span className="gradient-text">CPU Scheduling Algorithms</span>{' '}
+            <span className="gradient-text">Different Algorithms</span>{' '}
             Like Never Before!
           </h1>
           
@@ -49,7 +49,7 @@ const HeroSection = ({ featureSectionRef }: HeroSectionProps) => {
           <div className="hidden md:flex relative items-center justify-center mt-8 md:mt-12 w-full">
             <Link to="#" className="flex items-center justify-center w-max rounded-full border-t border-foreground/30 bg-white/20 backdrop-blur-lg px-2 py-1 md:py-2 gap-2 md:gap-8 shadow-3xl shadow-background/40 cursor-pointer select-none">
               <p className="text-foreground text-sm text-center md:text-base font-medium font-gilroy pl-4 pr-4 lg:pr-0">
-                ✨ {"  "} Learn and simulate First Come First Serve, Shortest Job First, SRTF, HRRN, and Banker's Algorithm — with live animations and real-time feedback.
+                ✨ {"  "} Experience Sorting, Pathfinding, Graph, and CPU Scheduling algorithms with interactive visualizations, smooth animations, and real-time insights.
               </p>
               <Button size="sm" onClick={scrollToFeatures} className="rounded-full hidden lg:flex border font-gilroy border-foreground/20">
                 Get Started

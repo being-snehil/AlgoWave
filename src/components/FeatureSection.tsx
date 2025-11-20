@@ -1,8 +1,8 @@
-import { Cpu, Clock, ArrowRight, Database, List, Layers, ArrowUp } from "lucide-react";
+import { Cpu, Clock, ArrowRight, Database, List, Layers, ArrowUp, GitGraph, Route, Shuffle } from "lucide-react";
 import AlgorithmCard from "./AlgorithmCard";
 
 const FeatureSection = () => {
-  const algorithms = [
+  const cpuSchedulingAlgorithms = [
     {
       title: "First Come First Serve",
       description: "Non-preemptive scheduling based on arrival order",
@@ -53,6 +53,33 @@ const FeatureSection = () => {
     }
   ];
 
+  const sortingAlgorithms = [
+    {
+      title: "Sorting Algorithms",
+      description: "Visualize different sorting techniques",
+      icon: <Shuffle size={24} />,
+      path: "/sorting"
+    }
+  ];
+
+  const pathfindingAlgorithms = [
+    {
+      title: "Pathfinding Algorithms",
+      description: "Find the shortest path between nodes",
+      icon: <Route size={24} />,
+      path: "/pathfinding"
+    }
+  ];
+
+  const graphAlgorithms = [
+    {
+      title: "Graph Algorithms",
+      description: "Explore graph traversal techniques",
+      icon: <GitGraph size={24} />,
+      path: "/graph"
+    }
+  ];
+
   return (
     <section className="py-16 bg-background">
       <div className="container">
@@ -64,7 +91,7 @@ const FeatureSection = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 font-gilroyr">
-          {algorithms.map((algorithm, index) => (
+          {cpuSchedulingAlgorithms.map((algorithm, index) => (
             <AlgorithmCard
               key={index}
               title={algorithm.title}
@@ -73,6 +100,47 @@ const FeatureSection = () => {
               path={algorithm.path}
             />
           ))}
+        </div>
+
+        <div className="mt-16">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <h2 className="text-3xl font-bold mb-4 gradient-text font-gilroy">More Algorithms</h2>
+            <p className="text-muted-foreground mb-8 font-gilroy">
+              Explore additional algorithm categories beyond CPU scheduling.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 font-gilroyr">
+            {sortingAlgorithms.map((algorithm, index) => (
+              <AlgorithmCard
+                key={`sorting-${index}`}
+                title={algorithm.title}
+                description={algorithm.description}
+                icon={algorithm.icon}
+                path={algorithm.path}
+              />
+            ))}
+            
+            {pathfindingAlgorithms.map((algorithm, index) => (
+              <AlgorithmCard
+                key={`pathfinding-${index}`}
+                title={algorithm.title}
+                description={algorithm.description}
+                icon={algorithm.icon}
+                path={algorithm.path}
+              />
+            ))}
+            
+            {graphAlgorithms.map((algorithm, index) => (
+              <AlgorithmCard
+                key={`graph-${index}`}
+                title={algorithm.title}
+                description={algorithm.description}
+                icon={algorithm.icon}
+                path={algorithm.path}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
